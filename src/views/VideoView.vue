@@ -26,6 +26,10 @@
         verfolgt uns bis wir auf mysteriöse Weise wieder auf dem Schulgelände
         erscheinen.
       </p>
+      <h1>Storyboard</h1>
+      <img src="1.png" alt="Storybook 1" />
+      <img src="2.png" alt="Storybook 2" />
+      <img src="3.png" alt="Storybook 3" />
     </div>
   </div>
 </template>
