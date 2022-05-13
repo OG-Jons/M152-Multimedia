@@ -1,9 +1,16 @@
 <template>
   <div id="video-view">
     <h1>The Backrooms - Minecraft Edition</h1>
-    <video controls>
-      <source src="video.mp4" type="video/mp4" />
-    </video>
+
+    <iframe
+      width="1008"
+      height="576"
+      src="https://www.youtube.com/embed/hddqFkYxhMQ"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
 
     <div id="scrolldown-icon" class="floating">
       <i class="pi pi-arrow-down"></i>
@@ -38,11 +45,6 @@ onBeforeMount(() => {
 </script>
 
 <style scoped>
-video {
-  width: 100%;
-  max-height: 100%;
-}
-
 #scrolldown-icon {
   margin-top: 3rem;
   margin-bottom: 20vh;
