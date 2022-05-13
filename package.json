@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-patgh .gitignore --fix src",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
     "aos": "^2.3.4",
@@ -17,7 +18,8 @@
     "primevue": "^3.12.2",
     "vue": "^3.2.25",
     "vue-meta": "^3.0.0-alpha.10",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.0.14",
+    "execa": "^5.1.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",
