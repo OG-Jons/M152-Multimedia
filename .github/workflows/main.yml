@@ -1,20 +1,42 @@
-name: Deploy to Github Pages
+name: Build
+
 on:
   push:
     branches:
       - master
+
 jobs:
-  gh-pages-deploy:
-    name: Deploying to Github Pages
+  build:
+    name: Build and Push
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16.13.x ]
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: git-checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          node-version: '16'
-      - name: Install packages
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install all dependencies
         run: npm ci
-      - name: Set Creds
-        run: git config user.name "OG-Jons" && git config user.email "jonas@marschall.pro"
-      - name: Deploy
-        run: npm run deploy
+
+      - name: Lint code
+        run: npm run lint
+
+      - name: Build
+        run: npm run build # The build command of your project
+
+      - name: Push
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: build # The branch name where you want to push the assets
+          FOLDER: dist # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Build: ({sha}) {msg}" # The commit message
