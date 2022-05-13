@@ -4,11 +4,11 @@
     <h2>Scroll down for animations...</h2>
     <div id="text-boxes">
       <p
-        v-for="(text, index) in textArr"
-        :key="index"
-        :data-aos="text.animation"
-        data-aos-delay="1000"
-        data-aos-easing="ease-in-sine"
+          v-for="(text, index) in textArr"
+          :key="index"
+          :data-aos="text.animation"
+          data-aos-delay="1000"
+          data-aos-easing="ease-in-sine"
       >
         {{ text.lorem }}
       </p>
@@ -17,11 +17,17 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import {onMounted} from "vue";
 import AOS from "aos";
+import {useMeta} from "vue-meta";
+
+useMeta({
+  title: "Scrolling Animations",
+  description: "A simple example of scrolling animations with AOS",
+})
 
 const lorem =
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate deserunt impedit, ipsam maiores, neque nihil nostrum placeat provident qui rerum, sunt velit voluptatum! Corporis eaque eius fugiat odio rerum.";
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate deserunt impedit, ipsam maiores, neque nihil nostrum placeat provident qui rerum, sunt velit voluptatum! Corporis eaque eius fugiat odio rerum.";
 
 const textArr = [
   {

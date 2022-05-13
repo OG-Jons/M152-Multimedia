@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import {createApp} from "vue";
 import App from "./App.vue";
 import router from "./router/router";
 
@@ -17,14 +17,17 @@ app.use(router);
 
 app.use(PrimeVue);
 
-// Components
+app.use(createMetaManager());
 
+// Components
 import Menubar from "primevue/menubar";
 import InputText from "primevue/inputtext";
 import Button from "primevue/button";
+import {createMetaManager} from "vue-meta";
+
 
 app.component("Menubar", Menubar);
 app.component("InputText", InputText);
 app.component("Button", Button);
-
+router.isReady();
 app.mount("#app");

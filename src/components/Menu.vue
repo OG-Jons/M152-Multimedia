@@ -16,20 +16,25 @@ import { ref } from "vue";
 
 const items = ref([
   {
-    label: "Scrolling",
-    icon: "pi pi-fw pi-map",
-    to: "/scroll",
+    label: "Home",
+    icon: "pi pi-fw pi-home",
+    to: "/",
   },
   {
     label: "Animations",
-    icon: "pi pi-fw pi-map",
+    icon: "pi pi-fw pi-play",
     items: [
       {
         label: "Scrolling",
-        icon: "pi pi-fw pi-map",
+        icon: "pi pi-fw pi-sort-alt",
         to: "/scroll",
       },
     ],
+  },
+  {
+    label: "Video",
+    icon: "pi pi-fw pi-video",
+    to: "/video",
   },
 ]);
 </script>
